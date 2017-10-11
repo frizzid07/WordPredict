@@ -3,6 +3,8 @@
 #include <string.h>
 #define MAX 100
 
+char str2[MAX];
+
 struct node {
 	int data;
 	struct node *array[26];
@@ -68,7 +70,7 @@ void search(struct node *h, char *s, char *dat)
 			printf("No Match");
 	} else {
 		if (h->data != 0) 
-			printf("Match: ");
+			printf("Match: %s\n",str2);
 		for (i = 0; i < 26; ++i) {
 			strcpy(l, dat);
 			a[0] = i + 'a';
@@ -125,6 +127,7 @@ int main()
             char s[MAX];
             printf("Enter a part of word: ");
             scanf("%s", s);
+            strcpy(str2,s);
             char dat[100] = "";
             search(h, s, dat);
             while(getchar()!='\n'); // option TWO to clean stdin
